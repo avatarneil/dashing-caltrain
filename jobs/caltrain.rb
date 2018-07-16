@@ -13,7 +13,7 @@ def north_fetch()
 end
 
 def south_fetch() 
-    uri = URI('http://api.511.org/transit/StopMonitoring?api_key=' + + ENV["CALTRAIN_API_KEY"] + '&agency=CT&format=JSON&stopCode=' + $south_bound_code)
+    uri = URI('http://api.511.org/transit/StopMonitoring?api_key=' + ENV["CALTRAIN_API_KEY"] + '&agency=CT&format=JSON&stopCode=' + $south_bound_code)
     res = Net::HTTP.get(uri)
     res = JSON.parse!(res[3..res.length])
     res["ServiceDelivery"]["StopMonitoringDelivery"]["MonitoredStopVisit"][0]["MonitoredVehicleJourney"]["MonitoredCall"]
